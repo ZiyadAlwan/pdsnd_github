@@ -13,7 +13,7 @@ agreed = ['y', 'n']
 
 def get_city():
     """
-    Get City information and return it
+    Get City information and return it.
 
     Returns:
         city(str)
@@ -32,7 +32,7 @@ def get_city():
 
 def get_month():
     """
-    Get Month information and return it
+    Get Month information and return it.
 
     Returns:
         Month(str)
@@ -51,7 +51,7 @@ def get_month():
 
 def get_day():
     """
-    Get Day information and return it
+    Get Day information and return it.
 
     Returns:
         Day(str)
@@ -70,7 +70,7 @@ def get_day():
 
 def load_data(city, month, day):
     """
-    Loads data based on city and filter by month and day if it's needed
+    Loads data based on city and filter by month and day if it's needed.
 
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
@@ -96,7 +96,7 @@ def load_data(city, month, day):
 
 
 def get_statistics_time(df):
-    """Shows The Most popular Times of Travel """
+    """Shows The Most popular Times of Travel"""
 
     print_title(f"The Most popular Times of Travel...")
     start_time = time.time()
@@ -153,7 +153,7 @@ def get_user_statistics(df):
 
 
 def show_raw_data(df):
-    """Displays raw panda data"""
+    """Displays raw panda data."""
     # To prompt the user whether they would like want to see the raw data
     user_input = input('Load raw data? (Enter:Y/N).\n').lower()
     while True:
@@ -177,7 +177,7 @@ def show_raw_data(df):
 
 
 def check_for_restart():
-    """Checks wether the script should be colled one more time without interaption"""
+    """Checks wether the script should be colled one more time without interaction."""
 
     restart = input('\nShould we start from begining? (Enter:Y/N).\n').lower()
     while True:
@@ -191,11 +191,11 @@ def check_for_restart():
     return True
 
 def print_title(title):
-    """Displays nice title"""
+    """Displays nice title."""
     click.secho(title, fg="red")
 
 def calculate_execution(start_time):
-    """Calculates execution and shows in nice view"""
+    """Calculates execution and shows in nice view."""
     total = str(datetime.timedelta(seconds=(time.time() - start_time)))
     print(f"\nCalculated for {total} seconds.")
     click.secho(f"{'=' * 50}", fg="blue")
