@@ -142,15 +142,15 @@ def get_user_statistics(df):
     #gets stats by gender if it exists
     try:
         print(f"{df['Gender'].value_counts().to_string()}")
-    except:
-        pass
+    except Exception as e:
+        print(e)
     #gets stats for Birth year if it exists
     try:
         print(f"Min Birth year: {int(df['Birth Year'].min())}")
         print(f"Max Birth year: {int(df['Birth Year'].max())}")
         print(f"Common Birth year: {int(df['Birth Year'].mode()[0])}")
-    except:
-        pass
+    except Exception as e:
+        print(e)
     calculate_execution(start_time)
 
 
