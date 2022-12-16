@@ -1,8 +1,9 @@
-import time
 import datetime
-import pandas as pd
 import os
+import time
+
 import click
+import pandas as pd
 
 CITY_INFO = {'chicago': 'chicago.csv', 'new york city': 'new_york_city.csv', 'washington': 'washington.csv'}
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
@@ -19,12 +20,13 @@ def get_city():
     """
     city = input("Enter the city you want see data for 'Chicago' , 'New York City' or 'Washington' : ").lower()
     # force user to input correct city in loop
-    while True:
+    stop = False
+    while not stop:
         if city not in CITY_INFO:
             city = input("Incorrect City. Try Again...\n"
                          "Enter the city you want see data for 'Chicago' , 'New York City' or 'Washington' : ").lower()
         else:
-            break
+            stop = True
     return city
 
 
@@ -38,13 +40,14 @@ def get_month():
     month = input("Enter 'all' to disable month filter or any month "
                   "between January and June including to apply filter : ").lower()
     # force user to input correct month in loop or 'all'
-    while True:
+    stop = False
+    while not stop:
         if month not in MONTHS and month != 'all':
             month = input("Invalid month. Try Again...\n"
                           "Enter 'all' to disable month filter or any month "
                           "between January and June including to apply filter : ").lower()
         else:
-            break
+            stop = True
     return month
 
 
@@ -57,12 +60,13 @@ def get_day():
     """
     day = input("Enter 'all' to disable filtering or any day from Monday to Sunday: ").lower()
     # force user to input correct day in loop or 'all'
-    while True:
+    stop = False
+    while not stop:
         if day not in DAYS and day != 'all':
             day = input("Invalid day name. Try Again...\n"
                         "Enter 'all' to disable filtering or any day from Monday to Sunday: ").lower()
         else:
-            break
+            stop = True
     return day
 
 
@@ -200,8 +204,9 @@ def calculate_execution(start_time):
 
 def main():
     click.secho("Hello. Let's begin", fg="blue")
+    stop = False
 
-    while True:
+    while not stop:
         city = get_city()
         month = get_month()
         day = get_day()
@@ -215,7 +220,7 @@ def main():
         get_user_statistics(df)
         show_raw_data(df)
         if not check_for_restart():
-            break
+            stop = True
 
 if __name__ == "__main__":
     try:
