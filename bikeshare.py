@@ -18,13 +18,13 @@ def get_city():
     Returns:
         city(str)
     """
-    city = input("Enter the city you want see data for 'Chicago' , 'New York City' or 'Washington' : ").lower()
+    output = "Enter the city you want see data for 'Chicago' , 'New York City' or 'Washington' : "
+    city = input(output).lower()
     # force user to input correct city in loop
     stop = False
     while not stop:
         if city not in CITY_INFO:
-            city = input("Incorrect City. Try Again...\n"
-                         "Enter the city you want see data for 'Chicago' , 'New York City' or 'Washington' : ").lower()
+            city = input("Incorrect City. Try Again...\n"+output).lower()
         else:
             stop = True
     return city
@@ -37,15 +37,13 @@ def get_month():
     Returns:
         Month(str)
     """
-    month = input("Enter 'all' to disable month filter or any month "
-                  "between January and June including to apply filter : ").lower()
+    output = "Enter 'all' to disable month filter or any month between January and June including to apply filter : "
+    month = input(output).lower()
     # force user to input correct month in loop or 'all'
     stop = False
     while not stop:
         if month not in MONTHS and month != 'all':
-            month = input("Invalid month. Try Again...\n"
-                          "Enter 'all' to disable month filter or any month "
-                          "between January and June including to apply filter : ").lower()
+            month = input("Invalid month. Try Again...\n"+output).lower()
         else:
             stop = True
     return month
@@ -58,13 +56,13 @@ def get_day():
     Returns:
         Day(str)
     """
-    day = input("Enter 'all' to disable filtering or any day from Monday to Sunday: ").lower()
+    output = "Enter 'all' to disable filtering or any day from Monday to Sunday: "
+    day = input(output).lower()
     # force user to input correct day in loop or 'all'
     stop = False
     while not stop:
         if day not in DAYS and day != 'all':
-            day = input("Invalid day name. Try Again...\n"
-                        "Enter 'all' to disable filtering or any day from Monday to Sunday: ").lower()
+            day = input("Invalid day name. Try Again...\n"+output).lower()
         else:
             stop = True
     return day
