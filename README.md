@@ -12,6 +12,9 @@ This repository contains practice set for Udacity Programming For Data Science N
 ## Files used
 
 * `bikeshare.py`
+* `chicago.csv`
+* `new_york_city.csv`
+* `washington.csv`
 
 ## Credits
 
